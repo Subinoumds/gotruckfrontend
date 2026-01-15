@@ -24,6 +24,7 @@ export const AuthProvider = ({ children }) => {
       const userData = await authService.getCurrentUser()
       setUser(userData)
     } catch (error) {
+      // Si 401, c'est normal si on n'est pas connecté, on ne fait rien
       setUser(null)
     } finally {
       setLoading(false)

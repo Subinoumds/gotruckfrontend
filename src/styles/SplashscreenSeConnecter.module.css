@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,500&display=swap');
+
+.splashscreenSeConnecter {
+    width: 100%;
+    height: 1024px;
+    position: relative;
+    background: linear-gradient(180deg, #85031f, #ec6827);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: left;
+    font-size: 16px;
+    color: #0f0f0f;
+    font-family: Poppins;
+}
+
+.frameParent {
+    height: 1024px;
+    width: 674px;
+    background-color: #fffbf8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 56px;
+    box-sizing: border-box;
+    gap: 76px;
+}
+
+.frameChild {
+    align-self: stretch;
+    height: 39px;
+    max-width: 100%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.frameGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+}
+
+.seConnecterParent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: center;
+    font-size: 40px;
+}
+
+.seConnecter {
+    position: relative;
+}
+
+.tuNasPasContainer {
+    width: 500px;
+    height: 47px;
+    position: relative;
+    font-size: 16px;
+    color: #000;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.tuNasPasContainer2 {
+    width: 100%;
+}
+
+.sinscrire {
+    text-decoration: underline;
+    font-weight: 600;
+    color: #85031f;
+    transition: color 0.2s;
+}
+
+.frameContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.textParent {
+    width: 562px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input {
+    align-self: stretch;
+    height: 55px;
+    border-radius: 6px;
+    background-color: #fff;
+    border: 1px solid #e4e4e7;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    color: #6d6d6d;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.text2 {
+    width: 296px;
+    display: flex;
+    align-items: center;
+}
+
+.frameDiv {
+    width: 562px;
+    height: 24px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    color: #000;
+}
+
+.frame {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.square {
+    height: 16px;
+    width: 16px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.vectorIcon {
+    position: absolute;
+    height: 75%;
+    width: 75%;
+    top: 12.5%;
+    right: 12.5%;
+    bottom: 12.5%;
+    left: 12.5%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+
+.frame2 {
+    display: flex;
+    align-items: center;
+}
+
+.motDePasse2 {
+    position: relative;
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.bouton {
+    width: 562px;
+    height: 48px;
+    border-radius: 9999px;
+    background-color: #85031f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    box-sizing: border-box;
+    color: #fffbf8;
+}
+
+.lineOr {
+    width: 562px;
+    height: 20px;
+    position: relative;
+    font-size: 12px;
+    color: #6d6d6d;
+    font-family: Inter;
+}
+
+.lineOrChild {
+    position: absolute;
+    top: 9.5px;
+    left: -0.5px;
+    background-color: #6d6d6d;
+    border-top: 1px solid #6d6d6d;
+    box-sizing: border-box;
+    width: 256.5px;
+    height: 1px;
+}
+
+.lineOrItem {
+    position: absolute;
+    top: 9.5px;
+    left: 306.05px;
+    background-color: #6d6d6d;
+    border-top: 1px solid #6d6d6d;
+    box-sizing: border-box;
+    width: 256.5px;
+    height: 1px;
+}
+
+.ou {
+    position: absolute;
+    top: 0px;
+    left: 272.48px;
+    letter-spacing: -0.15px;
+    line-height: 20px;
+    font-weight: 500;
+    display: inline-block;
+    width: 19.2px;
+}
+
+.bouton2 {
+    width: 562px;
+    height: 48px;
+    border-radius: 9999px;
+    background-color: #fffbf8;
+    border: 1.5px solid #85031f;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    gap: 24px;
+    color: #85031f;
+}
+
+.rectangleIcon {
+    height: 25px;
+    width: 26.3px;
+    position: relative;
+    object-fit: cover;
+}
+
+.rectangleIcon2 {
+    height: 26px;
+    width: 26.2px;
+    position: relative;
+    object-fit: cover;
+}
+
+body {
+    margin: 0;
+    line-height: normal;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .splashscreenSeConnecter {
+        height: 100vh;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .frameParent {
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+        padding: 32px 24px;
+        gap: 40px;
+    }
+
+    .frameChild {
+        height: 32px;
+    }
+
+    .seConnecterParent {
+        font-size: 32px;
+    }
+
+    .tuNasPasContainer {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .textParent {
+        width: 100%;
+    }
+
+    .frameContainer {
+        width: 100%;
+    }
+
+    .frameDiv {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        height: auto;
+    }
+
+    .bouton,
+    .bouton2 {
+        width: 100%;
+    }
+
+    .lineOr {
+        width: 100%;
+    }
+
+    .lineOrChild {
+        width: calc(50% - 20px);
+    }
+
+    .lineOrItem {
+        width: calc(50% - 20px);
+        left: calc(50% + 20px);
+    }
+
+    .ou {
+        left: calc(50% - 9.6px);
+    }
+}
+
+@media (max-width: 480px) {
+    .frameParent {
+        padding: 24px 16px;
+        gap: 32px;
+    }
+
+    .seConnecterParent {
+        font-size: 28px;
+    }
+
+    .frameGroup {
+        gap: 24px;
+    }
+
+    .input {
+        height: 48px;
+        padding: 6px 10px;
+    }
+}
+
+/* Amélioration des interactions */
+.bouton:hover:not(:disabled) {
+    background-color: #6d0219;
+    transition: background-color 0.2s;
+}
+
+.bouton2:hover {
+    background-color: #fff5f0;
+    transition: background-color 0.2s;
+}
+
+.input:focus-within {
+    border-color: #85031f;
+    box-shadow: 0 0 0 2px rgba(133, 3, 31, 0.1);
+}
+
+.sinscrire {
+    cursor: pointer;
+}
+
+.sinscrire:hover {
+    color: #85031f;
+}
+
+.motDePasse2 {
+    cursor: pointer;
+}
+
+.motDePasse2:hover {
+    color: #85031f;
+}
