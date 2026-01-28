@@ -3,7 +3,8 @@
 
 .splashscreenSeConnecter {
     width: 100%;
-    height: 1024px;
+    height: 100vh;
+    min-height: 1024px;
     position: relative;
     background: linear-gradient(180deg, #85031f, #ec6827);
     overflow: hidden;
@@ -14,6 +15,24 @@
     font-size: 16px;
     color: #0f0f0f;
     font-family: Poppins;
+}
+
+/* Pattern d'icônes en arrière-plan */
+.backgroundPattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - 674px);
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.patternIcon {
+    position: absolute;
+    width: 80px;
+    height: auto;
+    opacity: 0.3;
 }
 
 .frameParent {
@@ -260,8 +279,13 @@ body {
 @media (max-width: 768px) {
     .splashscreenSeConnecter {
         height: 100vh;
+        min-height: auto;
         justify-content: center;
         padding: 0;
+    }
+
+    .backgroundPattern {
+        display: none; /* Cache le pattern sur mobile */
     }
 
     .frameParent {

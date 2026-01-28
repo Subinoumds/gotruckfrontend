@@ -50,9 +50,80 @@ const LoginPage = () => {
 
   return (
     <div className={styles.splashscreenSeConnecter}>
+      {/* Pattern d'icônes sur le fond rouge - Grille régulière en quinconce */}
+      <div className={styles.backgroundPattern}>
+        {/* Rangée 1 - truck burger truck burger truck burger */}
+        <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '2%', left: '2%' }} />
+        <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '2%', left: '20%' }} />
+        <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '2%', left: '38%' }} />
+        <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '2%', left: '56%' }} />
+        <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '2%', left: '74%' }} />
+        <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '2%', left: '92%' }} />
+        
+        {/* Rangée 2 - décalée - burger truck burger truck burger */}
+        <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '14%', left: '11%' }} />
+        <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '14%', left: '29%' }} />
+        <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '14%', left: '47%' }} />
+        <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '14%', left: '65%' }} />
+        <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '14%', left: '83%' }} />
+        
+        {/* Rangée 3 */}
+        <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '26%', left: '2%' }} />
+        <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '26%', left: '20%' }} />
+        <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '26%', left: '38%' }} />
+        <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '26%', left: '56%' }} />
+        <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '26%', left: '74%' }} />
+        <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '26%', left: '92%' }} />
+        
+        {/* Rangée 4 - décalée */}
+        <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '38%', left: '11%' }} />
+        <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '38%', left: '29%' }} />
+        <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '38%', left: '47%' }} />
+        <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '38%', left: '65%' }} />
+        <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '38%', left: '83%' }} />
+        
+        {/* Rangée 5 */}
+        <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '50%', left: '2%' }} />
+        <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '50%', left: '20%' }} />
+        <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '50%', left: '38%' }} />
+        <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '50%', left: '56%' }} />
+        <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '50%', left: '74%' }} />
+        <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '50%', left: '92%' }} />
+        
+        {/* Rangée 6 - décalée */}
+        <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '62%', left: '11%' }} />
+        <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '62%', left: '29%' }} />
+        <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '62%', left: '47%' }} />
+        <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '62%', left: '65%' }} />
+        <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '62%', left: '83%' }} />
+        
+        {/* Rangée 7 */}
+        <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '74%', left: '2%' }} />
+        <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '74%', left: '20%' }} />
+        <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '74%', left: '38%' }} />
+        <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '74%', left: '56%' }} />
+        <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '74%', left: '74%' }} />
+        <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '74%', left: '92%' }} />
+        
+        {/* Rangée 8 - décalée */}
+        <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '86%', left: '11%' }} />
+        <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '86%', left: '29%' }} />
+        <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '86%', left: '47%' }} />
+        <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '86%', left: '65%' }} />
+        <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '86%', left: '83%' }} />
+        
+        {/* Rangée 9 */}
+        <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '98%', left: '2%' }} />
+        <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '98%', left: '20%' }} />
+        <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '98%', left: '38%' }} />
+        <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '98%', left: '56%' }} />
+        <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '98%', left: '74%' }} />
+        <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '98%', left: '92%' }} />
+      </div>
+      
       <div className={styles.frameParent}>
-        <div className={styles.frameChild} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <h1 style={{ margin: 0, fontSize: '24px', fontWeight: 700, color: '#85031f' }}>GoTruck</h1>
+        <div className={styles.frameChild} style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
+          <img src="/logo-header.png" alt="GoTruck" style={{ height: '35px', width: 'auto' }} />
         </div>
         <form className={styles.frameGroup} onSubmit={handleSubmit}>
           <div className={styles.seConnecterParent}>
@@ -174,35 +245,13 @@ const LoginPage = () => {
             <div className={styles.ou}>OU</div>
           </div>
 
-          <button type="button" className={styles.bouton2} style={{ cursor: 'pointer' }} onClick={() => alert('Connexion Google - À implémenter')}>
-            <div className={styles.rectangleIcon} style={{ 
-              width: '26px', 
-              height: '25px', 
-              backgroundColor: '#4285F4', 
-              borderRadius: '4px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: 'white',
-              fontSize: '12px',
-              fontWeight: 'bold'
-            }}>G</div>
+          <button type="button" className={styles.bouton2} style={{ cursor: 'pointer' }} onClick={() => navigate('/coming-soon')}>
+            <img src="/googleconnexion.png" alt="Google" style={{ width: '26px', height: '26px', objectFit: 'contain' }} />
             <div className={styles.seConnecter}>Se connecter avec Google</div>
           </button>
 
-          <button type="button" className={styles.bouton2} style={{ cursor: 'pointer' }} onClick={() => alert('Connexion Facebook - À implémenter')}>
-            <div className={styles.rectangleIcon2} style={{ 
-              width: '26px', 
-              height: '26px', 
-              backgroundColor: '#1877F2', 
-              borderRadius: '4px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: 'white',
-              fontSize: '12px',
-              fontWeight: 'bold'
-            }}>f</div>
+          <button type="button" className={styles.bouton2} style={{ cursor: 'pointer' }} onClick={() => navigate('/coming-soon')}>
+            <img src="/facebookconnexion.png" alt="Facebook" style={{ width: '26px', height: '26px', objectFit: 'contain' }} />
             <div className={styles.seConnecter}>Se connecter avec Facebook</div>
           </button>
         </form>
