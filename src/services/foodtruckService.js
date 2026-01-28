@@ -38,4 +38,26 @@ export const foodtruckService = {
     const response = await api.get(`/foodtrucks/${id}`)
     return response.data
   },
+
+  async uploadPhoto(foodtruckId, file) {
+    const formData = new FormData()
+    formData.append('photo', file)
+    
+    const response = await api.post(`/upload/foodtruck/${foodtruckId}/photo`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    })
+    return response.data
+  },
+
+  async create(data) {
+    const response = await api.post('/foodtrucks', data)
+    return response.data
+  },
+
+  async update(id, data) {
+    const response = await api.put(`/foodtrucks/${id}`, data)
+    return response.data
+  },
 }

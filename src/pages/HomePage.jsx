@@ -7,6 +7,8 @@ import CuisineFilter from '../components/Filters/CuisineFilter'
 import PlatsFilter from '../components/Filters/PlatsFilter'
 import HorizontalScroll from '../components/HorizontalScroll'
 import { foodtruckService } from '../services/foodtruckService'
+import { favoriService } from '../services/favoriService'
+import { getImageUrl } from '../services/api'
 import styles from '../styles/Connexion.module.css'
 
 const HomePage = () => {
@@ -23,6 +25,49 @@ const HomePage = () => {
     plats: []
   })
   const [selectedPlatType, setSelectedPlatType] = useState('Tous')
+  const [favoriteIds, setFavoriteIds] = useState([])
+
+  // Charger les favoris de l'utilisateur
+  useEffect(() => {
+    const loadFavorites = async () => {
+      if (user) {
+        try {
+          const ids = await favoriService.getIds()
+          // S'assurer que les IDs sont des numbers
+          setFavoriteIds(ids.map(id => Number(id)))
+        } catch (err) {
+          console.error('Erreur chargement favoris:', err)
+        }
+      } else {
+        setFavoriteIds([])
+      }
+    }
+    loadFavorites()
+  }, [user])
+
+  // Fonction pour toggle un favori
+  const handleToggleFavorite = async (e, foodtruckId) => {
+    e.stopPropagation() // Empêcher la propagation du clic
+    if (!user) {
+      // Rediriger vers login si non connecté
+      alert('Connectez-vous pour ajouter des favoris')
+      return
+    }
+    const id = Number(foodtruckId)
+    try {
+      const result = await favoriService.toggle(id)
+      if (result.isFavorite) {
+        setFavoriteIds(prev => [...prev, id])
+      } else {
+        setFavoriteIds(prev => prev.filter(fid => fid !== id))
+      }
+    } catch (err) {
+      console.error('Erreur toggle favori:', err)
+    }
+  }
+
+  // Vérifier si un foodtruck est en favori
+  const isFavorite = (foodtruckId) => favoriteIds.includes(Number(foodtruckId))
 
   // Demander la géolocalisation au chargement
   useEffect(() => {
@@ -243,38 +288,34 @@ const HomePage = () => {
                       <div key={ft.id} className={styles.cardFoodTruck}>
                         <div className={styles.link}>
                           <div className={styles.background2}>
-                            <div className={styles.containerIcon} style={{
-                              width: '254px',
-                              height: '192px',
-                              background: 'linear-gradient(135deg, #85031f 0%, #ec6827 100%)',
-                              display: 'flex',
-                              flexDirection: 'column',
-                              alignItems: 'center',
-                              justifyContent: 'center',
-                              color: '#fffbf8',
-                              fontSize: '14px',
-                              fontWeight: '600',
-                              position: 'relative',
-                              overflow: 'hidden'
-                            }}>
-                              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" style={{ opacity: 0.3, marginBottom: '8px' }}>
-                                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                                <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                              </svg>
-                              <div style={{ textAlign: 'center', padding: '0 12px' }}>
-                                {ft.nom || 'Food Truck'}
-                              </div>
-                            </div>
+                            <img
+                              src={getImageUrl(ft.photo_url) || '/Container.png'}
+                              alt={ft.nom || 'Food Truck'}
+                              style={{
+                                width: '254px',
+                                height: '192px',
+                                objectFit: 'cover',
+                                borderRadius: '12px 12px 0 0'
+                              }}
+                            />
                             <div className={styles.container8}>
                               {ft.distance_km && (
                                 <div className={styles.overlay}>
                                   <div className={styles.moinsDe1}>{formatDistance(ft.distance_km)}</div>
                                 </div>
                               )}
-                              <div className={styles.coeur}>
+                              <div
+                                className={styles.coeur}
+                                onClick={(e) => handleToggleFavorite(e, ft.id)}
+                                style={{ cursor: 'pointer' }}
+                              >
                                 <svg className={styles.svgIcon} viewBox="0 0 24 24" fill="none">
-                                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke="#85031f" strokeWidth="2" fill="none" />
+                                  <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                                    stroke="#85031f"
+                                    strokeWidth="2"
+                                    fill={isFavorite(ft.id) ? '#85031f' : 'none'}
+                                  />
                                 </svg>
                               </div>
                             </div>
@@ -544,38 +585,34 @@ const HomePage = () => {
                   <div key={ft.id} className={styles.cardFoodTruck9}>
                     <div className={styles.link}>
                       <div className={styles.background2}>
-                        <div className={styles.containerIcon} style={{
-                          width: '254px',
-                          height: '192px',
-                          background: 'linear-gradient(135deg, #85031f 0%, #ec6827 100%)',
-                          display: 'flex',
-                          flexDirection: 'column',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          color: '#fffbf8',
-                          fontSize: '14px',
-                          fontWeight: '600',
-                          position: 'relative',
-                          overflow: 'hidden'
-                        }}>
-                          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" style={{ opacity: 0.3, marginBottom: '8px' }}>
-                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                            <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                            <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                          </svg>
-                          <div style={{ textAlign: 'center', padding: '0 12px' }}>
-                            {ft.nom || 'Food Truck'}
-                          </div>
-                        </div>
+                        <img
+                          src={getImageUrl(ft.photo_url) || '/Container.png'}
+                          alt={ft.nom || 'Food Truck'}
+                          style={{
+                            width: '254px',
+                            height: '192px',
+                            objectFit: 'cover',
+                            borderRadius: '12px 12px 0 0'
+                          }}
+                        />
                         <div className={styles.container8}>
                           {ft.distance_km && (
                             <div className={styles.overlay}>
                               <div className={styles.moinsDe1}>{formatDistance(ft.distance_km)}</div>
                             </div>
                           )}
-                          <div className={styles.coeur}>
+                          <div
+                            className={styles.coeur}
+                            onClick={(e) => handleToggleFavorite(e, ft.id)}
+                            style={{ cursor: 'pointer' }}
+                          >
                             <svg className={styles.svgIcon} viewBox="0 0 24 24" fill="none">
-                              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke="#85031f" strokeWidth="2" fill="none" />
+                              <path
+                                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                                stroke="#85031f"
+                                strokeWidth="2"
+                                fill={isFavorite(ft.id) ? '#85031f' : 'none'}
+                              />
                             </svg>
                           </div>
                         </div>
