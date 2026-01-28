@@ -223,6 +223,39 @@ const MapPage = () => {
 
 
 
+  // Calcul de distance (Haversine)
+  const calculateDistance = (lat1, lon1, lat2, lon2) => {
+    if (!lat1 || !lon1 || !lat2 || !lon2) return null
+    const R = 6371 // Rayon de la terre en km
+    const dLat = (lat2 - lat1) * (Math.PI / 180)
+    const dLon = (lon2 - lon1) * (Math.PI / 180)
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(lat1 * (Math.PI / 180)) * Math.cos(lat2 * (Math.PI / 180)) *
+      Math.sin(dLon / 2) * Math.sin(dLon / 2)
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
+    return R * c
+  }
+
+  const getDistanceText = (ft) => {
+    // Si l'API retourne déjà la distance (recherche nearby)
+    let dist = ft.distance_km
+
+    // Sinon on calcule si on a la pos user
+    if (!dist && userLocation && ft.latitude && ft.longitude) {
+      dist = calculateDistance(
+        userLocation[0], userLocation[1],
+        parseFloat(ft.latitude), parseFloat(ft.longitude)
+      )
+    }
+
+    if (dist !== null && dist !== undefined) {
+      if (dist < 1) return "À moins de 1 km"
+      return `À ${dist.toFixed(1).replace('.', ',')} km`
+    }
+    return null
+  }
+
   return (
     <div className={styles.mapPage}>
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
@@ -261,6 +294,7 @@ const MapPage = () => {
             center={userLocation}
             zoom={11}
             style={{ height: '100%', width: '100%', borderRadius: '15px' }}
+            zoomControl={false}
           >
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -345,56 +379,61 @@ const MapPage = () => {
           ) : (
             <>
               <div className={styles.foodtruckGrid}>
-                {paginatedFoodtrucks.map((ft) => (
-                  <div key={ft.id} className={styles.foodtruckCard}>
-                    <div className={styles.cardImage}>
-                      <img src={getImageUrl(ft.photo_url) || '/Container.png'} alt={ft.nom} />
-                      <div className={styles.cardOverlay}>
-                        <span className={styles.distanceBadge}>À moins de 1 km</span>
-                        <button
-                          className={styles.heartBtn}
-                          onClick={() => handleToggleFavorite(ft.id)}
-                        >
-                          <svg
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            fill={isFavorite(ft.id) ? '#ec6827' : 'none'}
-                            stroke={isFavorite(ft.id) ? '#ec6827' : '#fff'}
-                            strokeWidth="2"
+                {paginatedFoodtrucks.map((ft) => {
+                  const distanceText = getDistanceText(ft)
+                  return (
+                    <div key={ft.id} className={styles.foodtruckCard}>
+                      <div className={styles.cardImage}>
+                        <img src={getImageUrl(ft.photo_url) || '/Container.png'} alt={ft.nom} />
+                        <div className={styles.cardOverlay}>
+                          {distanceText && (
+                            <span className={styles.distanceBadge}>{distanceText}</span>
+                          )}
+                          <button
+                            className={styles.heartBtn}
+                            onClick={() => handleToggleFavorite(ft.id)}
                           >
-                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                    <div className={styles.cardContent}>
-                      <h3 className={styles.cardTitle}>{ft.nom}</h3>
-                      <div className={styles.cardInfo}>
-                        <div className={styles.infoRow}>
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0f0f0f" strokeWidth="2">
-                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                          </svg>
-                          <span>{ft.type_cuisine || 'Cuisine variée'}</span>
-                        </div>
-                        <div className={styles.infoRow}>
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0f0f0f" strokeWidth="2">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-                            <circle cx="12" cy="10" r="3" />
-                          </svg>
-                          <span>{ft.ville || 'Maine-et-Loire (49)'}</span>
+                            <svg
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill={isFavorite(ft.id) ? '#ec6827' : 'none'}
+                              stroke={isFavorite(ft.id) ? '#ec6827' : '#fff'}
+                              strokeWidth="2"
+                            >
+                              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                            </svg>
+                          </button>
                         </div>
                       </div>
-                      <p className={styles.cardPrice}>Menu à partir de 12€</p>
-                      <div className={styles.cardTags}>
-                        {ft.type_cuisine && (
-                          <span className={styles.tag}>{ft.type_cuisine}</span>
-                        )}
-                        <span className={styles.tag}>Click & Collect</span>
+                      <div className={styles.cardContent}>
+                        <h3 className={styles.cardTitle}>{ft.nom}</h3>
+                        <div className={styles.cardInfo}>
+                          <div className={styles.infoRow}>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0f0f0f" strokeWidth="2">
+                              <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                            </svg>
+                            <span>{ft.type_cuisine || 'Cuisine variée'}</span>
+                          </div>
+                          <div className={styles.infoRow}>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0f0f0f" strokeWidth="2">
+                              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                              <circle cx="12" cy="10" r="3" />
+                            </svg>
+                            <span>{ft.ville || 'Maine-et-Loire (49)'}</span>
+                          </div>
+                        </div>
+                        <p className={styles.cardPrice}>Menu à partir de 12€</p>
+                        <div className={styles.cardTags}>
+                          {ft.type_cuisine && (
+                            <span className={styles.tag}>{ft.type_cuisine}</span>
+                          )}
+                          <span className={styles.tag}>Click & Collect</span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  )
+                })}
               </div>
 
               {/* Pagination */}
