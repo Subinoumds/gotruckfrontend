@@ -168,8 +168,85 @@ const HomePage = () => {
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
       <div className={styles.groupeHeader}>
+        {/* Background avec gradient */}
         <div className={styles.headerBackgroundWrapper}>
           <div className={styles.calque1Icon} style={{ background: 'linear-gradient(180deg, #85031f, #ec6827)' }} />
+        </div>
+        {/* Pattern de symboles G en arrière-plan - Grille très dense */}
+        <div className={styles.gPatternContainer}>
+          {/* Rangée 1 */}
+          <img src="/g-envers.svg" alt="" className={styles.gSymbol} style={{ top: '-5%', left: '-2%' }} />
+          <img src="/g-endroit.svg" alt="" className={styles.gSymbol} style={{ top: '2%', left: '10%' }} />
+          <img src="/g-envers.svg" alt="" className={styles.gSymbol} style={{ top: '-3%', left: '22%' }} />
+          <img src="/g-endroit.svg" alt="" className={styles.gSymbol} style={{ top: '4%', left: '34%' }} />
+          <img src="/g-envers.svg" alt="" className={styles.gSymbol} style={{ top: '-2%', left: '46%' }} />
+          <img src="/g-endroit.svg" alt="" className={styles.gSymbol} style={{ top: '3%', left: '58%' }} />
+          <img src="/g-envers.svg" alt="" className={styles.gSymbol} style={{ top: '-4%', left: '70%' }} />
+          <img src="/g-endroit.svg" alt="" className={styles.gSymbol} style={{ top: '2%', left: '82%' }} />
+          <img src="/g-envers.svg" alt="" className={styles.gSymbol} style={{ top: '-1%', left: '94%' }} />
+
+          {/* Rangée 2 */}
+          <img src="/g-endroit.svg" alt="" className={styles.gSymbol} style={{ top: '14%', left: '4%' }} />
+          <img src="/g-envers.svg" alt="" className={styles.gSymbol} style={{ top: '18%', left: '16%' }} />
+          <img src="/g-endroit.svg" alt="" className={styles.gSymbol} style={{ top: '12%', left: '28%' }} />
+          <img src="/g-envers.svg" alt="" className={styles.gSymbol} style={{ top: '16%', left: '40%' }} />
+          <img src="/g-endroit.svg" alt="" className={styles.gSymbol} style={{ top: '14%', left: '52%' }} />
+          <img src="/g-envers.svg" alt="" className={styles.gSymbol} style={{ top: '18%', left: '64%' }} />
+          <img src="/g-endroit.svg" alt="" className={styles.gSymbol} style={{ top: '12%', left: '76%' }} />
+          <img src="/g-envers.svg" alt="" className={styles.gSymbol} style={{ top: '16%', left: '88%' }} />
+
+          {/* Rangée 3 */}
+          <img src="/g-envers.svg" alt="" className={styles.gSymbol} style={{ top: '30%', left: '-1%' }} />
+          <img src="/g-endroit.svg" alt="" className={styles.gSymbol} style={{ top: '34%', left: '11%' }} />
+          <img src="/g-envers.svg" alt="" className={styles.gSymbol} style={{ top: '28%', left: '23%' }} />
+          <img src="/g-endroit.svg" alt="" className={styles.gSymbol} style={{ top: '32%', left: '35%' }} />
+          <img src="/g-envers.svg" alt="" className={styles.gSymbol} style={{ top: '30%', left: '47%' }} />
+          <img src="/g-endroit.svg" alt="" className={styles.gSymbol} style={{ top: '34%', left: '59%' }} />
+          <img src="/g-envers.svg" alt="" className={styles.gSymbol} style={{ top: '28%', left: '71%' }} />
+          <img src="/g-endroit.svg" alt="" className={styles.gSymbol} style={{ top: '32%', left: '83%' }} />
+          <img src="/g-envers.svg" alt="" className={styles.gSymbol} style={{ top: '30%', left: '95%' }} />
+
+          {/* Rangée 4 */}
+          <img src="/g-endroit.svg" alt="" className={styles.gSymbol} style={{ top: '46%', left: '5%' }} />
+          <img src="/g-envers.svg" alt="" className={styles.gSymbol} style={{ top: '50%', left: '17%' }} />
+          <img src="/g-endroit.svg" alt="" className={styles.gSymbol} style={{ top: '44%', left: '29%' }} />
+          <img src="/g-envers.svg" alt="" className={styles.gSymbol} style={{ top: '48%', left: '41%' }} />
+          <img src="/g-endroit.svg" alt="" className={styles.gSymbol} style={{ top: '46%', left: '53%' }} />
+          <img src="/g-envers.svg" alt="" className={styles.gSymbol} style={{ top: '50%', left: '65%' }} />
+          <img src="/g-endroit.svg" alt="" className={styles.gSymbol} style={{ top: '44%', left: '77%' }} />
+          <img src="/g-envers.svg" alt="" className={styles.gSymbol} style={{ top: '48%', left: '89%' }} />
+
+          {/* Rangée 5 */}
+          <img src="/g-envers.svg" alt="" className={styles.gSymbol} style={{ top: '62%', left: '-2%' }} />
+          <img src="/g-endroit.svg" alt="" className={styles.gSymbol} style={{ top: '66%', left: '10%' }} />
+          <img src="/g-envers.svg" alt="" className={styles.gSymbol} style={{ top: '60%', left: '22%' }} />
+          <img src="/g-endroit.svg" alt="" className={styles.gSymbol} style={{ top: '64%', left: '34%' }} />
+          <img src="/g-envers.svg" alt="" className={styles.gSymbol} style={{ top: '62%', left: '46%' }} />
+          <img src="/g-endroit.svg" alt="" className={styles.gSymbol} style={{ top: '66%', left: '58%' }} />
+          <img src="/g-envers.svg" alt="" className={styles.gSymbol} style={{ top: '60%', left: '70%' }} />
+          <img src="/g-endroit.svg" alt="" className={styles.gSymbol} style={{ top: '64%', left: '82%' }} />
+          <img src="/g-envers.svg" alt="" className={styles.gSymbol} style={{ top: '62%', left: '94%' }} />
+
+          {/* Rangée 6 */}
+          <img src="/g-endroit.svg" alt="" className={styles.gSymbol} style={{ top: '78%', left: '4%' }} />
+          <img src="/g-envers.svg" alt="" className={styles.gSymbol} style={{ top: '82%', left: '16%' }} />
+          <img src="/g-endroit.svg" alt="" className={styles.gSymbol} style={{ top: '76%', left: '28%' }} />
+          <img src="/g-envers.svg" alt="" className={styles.gSymbol} style={{ top: '80%', left: '40%' }} />
+          <img src="/g-endroit.svg" alt="" className={styles.gSymbol} style={{ top: '78%', left: '52%' }} />
+          <img src="/g-envers.svg" alt="" className={styles.gSymbol} style={{ top: '82%', left: '64%' }} />
+          <img src="/g-endroit.svg" alt="" className={styles.gSymbol} style={{ top: '76%', left: '76%' }} />
+          <img src="/g-envers.svg" alt="" className={styles.gSymbol} style={{ top: '80%', left: '88%' }} />
+
+          {/* Rangée 7 */}
+          <img src="/g-envers.svg" alt="" className={styles.gSymbol} style={{ top: '94%', left: '-1%' }} />
+          <img src="/g-endroit.svg" alt="" className={styles.gSymbol} style={{ top: '98%', left: '11%' }} />
+          <img src="/g-envers.svg" alt="" className={styles.gSymbol} style={{ top: '92%', left: '23%' }} />
+          <img src="/g-endroit.svg" alt="" className={styles.gSymbol} style={{ top: '96%', left: '35%' }} />
+          <img src="/g-envers.svg" alt="" className={styles.gSymbol} style={{ top: '94%', left: '47%' }} />
+          <img src="/g-endroit.svg" alt="" className={styles.gSymbol} style={{ top: '98%', left: '59%' }} />
+          <img src="/g-envers.svg" alt="" className={styles.gSymbol} style={{ top: '92%', left: '71%' }} />
+          <img src="/g-endroit.svg" alt="" className={styles.gSymbol} style={{ top: '96%', left: '83%' }} />
+          <img src="/g-envers.svg" alt="" className={styles.gSymbol} style={{ top: '94%', left: '95%' }} />
         </div>
         <div className={styles.header}>
           <Header onMenuClick={() => setSidebarOpen(true)} />
@@ -184,29 +261,38 @@ const HomePage = () => {
         <div className={styles.searchbar}>
           <div className={styles.groupeInputButton}>
             <div className={styles.container5}>
-              <div className={styles.input}>
-                <div className={styles.rechercherUnFoodTruckWrapper}>
-                  <input
-                    type="text"
-                    className={styles.rechercherUnFood}
-                    placeholder="Rechercher un Food Truck..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    onKeyPress={(e) => {
-                      if (e.key === 'Enter') {
-                        // La recherche se déclenche automatiquement via le useEffect
-                      }
-                    }}
-                    style={{
-                      border: 'none',
-                      outline: 'none',
-                      background: 'transparent',
-                      width: '100%',
-                      fontSize: 'inherit',
-                      fontFamily: 'inherit',
-                      color: 'inherit'
-                    }} />
-                </div>
+              <div
+                className={styles.input}
+                onClick={(e) => {
+                  // Focus l'input quand on clique n'importe où dans la barre
+                  const input = e.currentTarget.querySelector('input');
+                  if (input) input.focus();
+                }}
+                style={{ cursor: 'text' }}
+              >
+                <input
+                  type="text"
+                  className={styles.rechercherUnFood}
+                  placeholder="Rechercher un Food Truck..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyPress={(e) => {
+                    if (e.key === 'Enter') {
+                      // La recherche se déclenche automatiquement via le useEffect
+                    }
+                  }}
+                  style={{
+                    border: 'none',
+                    outline: 'none',
+                    background: 'transparent',
+                    width: '100%',
+                    height: '100%',
+                    fontSize: 'inherit',
+                    fontFamily: 'inherit',
+                    color: 'inherit',
+                    padding: 0
+                  }}
+                />
               </div>
             </div>
             <button
