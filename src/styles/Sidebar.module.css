@@ -1,0 +1,211 @@
+/* Overlay sombre derrière la sidebar */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0);
+  z-index: 999;
+  pointer-events: none;
+  transition: background-color 0.3s ease;
+}
+
+.overlayVisible {
+  background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: auto;
+}
+
+.sidebar {
+  width: 100%;
+  max-width: 319px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  text-align: left;
+  font-size: 16px;
+  color: #0a0a0a;
+  font-family: Poppins;
+  overflow-y: auto;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.sidebarOpen {
+  transform: translateX(0);
+}
+
+.sheetheader {
+  position: absolute;
+  top: 0px;
+  left: 24px;
+  width: 271px;
+  height: 82px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px 0px 16px 16px;
+  box-sizing: border-box;
+  gap: 6px;
+}
+
+.primitiveh2 {
+  width: 239px;
+  flex: 1;
+  position: relative;
+}
+
+.menu {
+  position: absolute;
+  top: 0.5px;
+  left: 0px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.primitivep {
+  width: 239px;
+  height: 20px;
+  display: flex;
+  align-items: flex-start;
+  font-size: 14px;
+  color: #717182;
+}
+
+.menuDeNavigation {
+  flex: 1;
+  position: relative;
+  line-height: 20px;
+}
+
+.header {
+  position: absolute;
+  top: 122px;
+  left: 24px;
+  width: 271px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 12px 0px;
+  box-sizing: border-box;
+  gap: 24px;
+  color: #101828;
+}
+
+.navigation {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 8px;
+  gap: 16px;
+}
+
+.link {
+  align-self: stretch;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.link:hover {
+  background-color: #f5f5f5;
+}
+
+.loremIpsum {
+  position: relative;
+  line-height: 24px;
+}
+
+.primitivediv {
+  align-self: stretch;
+  height: 1px;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.buttonParent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  font-size: 14px;
+  color: #fffbf8;
+}
+
+.button {
+  width: 271px;
+  height: 48px;
+  border-radius: 16777200px;
+  background-color: #85031f;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 32px;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.button:hover {
+  background-color: #6d0219;
+}
+
+.inscription {
+  position: relative;
+  line-height: 20px;
+  font-weight: 500;
+  color: #fffbf8;
+}
+
+.menuBurger {
+  position: absolute;
+  top: 24px;
+  left: 279px;
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.calque1Icon {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: -0.01%;
+  right: 0.01%;
+  bottom: 0.01%;
+  left: -0.01%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .sheetheader,
+  .header {
+    width: calc(100% - 48px);
+  }
+  
+  .button {
+    width: 100%;
+  }
+}

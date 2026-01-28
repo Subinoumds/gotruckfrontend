@@ -1,0 +1,172 @@
+.header {
+  width: 100%;
+  height: 72px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: center;
+  font-size: 14px;
+  color: #85031f;
+  font-family: Inter;
+}
+
+.container {
+  align-self: stretch;
+  height: 72px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px -1px rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+  background-color: #fffbf8;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 32px;
+  box-sizing: border-box;
+}
+
+.container2 {
+  align-self: stretch;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.container3 {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.menuBurger {
+  height: 19.3px;
+  width: 24px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.calque1Icon {
+  position: absolute;
+  height: 100.52%;
+  width: 100%;
+  top: 0%;
+  right: 0.01%;
+  bottom: -0.52%;
+  left: -0.01%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+
+.logoTitreGotruck1Icon {
+  width: 133px;
+  position: relative;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.containerParent {
+  height: 44px;
+  width: 173px;
+  position: relative;
+}
+
+.container4 {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container5 {
+  display: flex;
+  align-items: flex-start;
+}
+
+.container6 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.button {
+  height: 44px;
+  box-shadow: 1px 2px 0px #f6f6f6;
+  border-radius: 12px 0px 0px 12px;
+  background-color: #fff;
+  border: 1px solid #85031f;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px 17px;
+  cursor: pointer;
+}
+
+.container7 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fr {
+  position: relative;
+  line-height: 18.2px;
+}
+
+.container8 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: -1px;
+  position: relative;
+  font-size: 13.56px;
+}
+
+.button2 {
+  height: 44px;
+  box-shadow: 1px 2px 0px #f6f6f6;
+  border-radius: 0px 12px 12px 0px;
+  background-color: #fff;
+  border: 1px solid #85031f;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1px 17px;
+  cursor: pointer;
+}
+
+.containerIcon {
+  position: absolute;
+  top: 0px;
+  left: 129px;
+  width: 44px;
+  height: 44px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0px 16px;
+  }
+  
+  .containerParent {
+    width: auto;
+  }
+  
+  .containerIcon {
+    left: auto;
+    right: 0;
+  }
+  
+  .container4 {
+    display: none;
+  }
+}
