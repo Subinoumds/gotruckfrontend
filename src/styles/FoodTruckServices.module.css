@@ -1,0 +1,99 @@
+.pageFoodTruckServices {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    text-align: left;
+    font-size: 16px;
+    color: #85031f;
+    font-family: Poppins;
+}
+
+.background {
+    width: 1376px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    background-color: #fffbf8;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 40px;
+    box-sizing: border-box;
+    font-size: 20px;
+    color: #ec6827;
+}
+
+.textParent {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    flex-shrink: 0;
+    width: 100%;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    flex: 1;
+}
+
+.mapPinCheckParent {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.mapPinCheckIcon {
+    height: 24px;
+    width: 24px;
+    position: relative;
+}
+
+.emplacementsEnSemaine {
+    position: relative;
+    line-height: 100%;
+}
+
+.beniBurritosParcourtContainer {
+    width: 100%;
+    position: relative;
+    font-size: 16px;
+    line-height: 140%;
+    color: #0f0f0f;
+    display: inline-block;
+}
+
+.beniBurritosParcourt {
+    margin: 0;
+}
+
+.clickCollectSurPlaceEm {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    padding-left: 21px;
+}
+
+.clickCollect {
+    margin-bottom: 0px;
+}
+
+.privatisationVnements {
+    position: relative;
+    line-height: 140%;
+}
+
+@media (max-width: 1400px) {
+    .background {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .textParent {
+        flex-direction: column;
+    }
+}

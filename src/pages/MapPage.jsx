@@ -382,7 +382,12 @@ const MapPage = () => {
                 {paginatedFoodtrucks.map((ft) => {
                   const distanceText = getDistanceText(ft)
                   return (
-                    <div key={ft.id} className={styles.foodtruckCard}>
+                    <div
+                      key={ft.id}
+                      className={styles.foodtruckCard}
+                      onClick={() => navigate(`/foodtruck/${ft.id}`)}
+                      style={{ cursor: 'pointer' }}
+                    >
                       <div className={styles.cardImage}>
                         <img src={getImageUrl(ft.photo_url) || '/Container.png'} alt={ft.nom} />
                         <div className={styles.cardOverlay}>

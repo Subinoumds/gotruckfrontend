@@ -1,0 +1,88 @@
+.pageFoodTruckMenu {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    text-align: left;
+    font-size: 16px;
+    color: #85031f;
+    font-family: Poppins;
+}
+
+.background {
+    width: 1376px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    background-color: #fffbf8;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 40px;
+    box-sizing: border-box;
+    gap: 24px;
+    font-size: 20px;
+    color: #ec6827;
+}
+
+.menuWrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.menu {
+    position: relative;
+    line-height: 140%;
+}
+
+.menuParent {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.menu2 {
+    height: 312px;
+    width: 236px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    box-sizing: border-box;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-color: #eee;
+    background-image: url('/Container.png');
+    /* Default placeholder if no image */
+}
+
+.scanEyeIcon {
+    width: 32px;
+    position: relative;
+    border-radius: 8px;
+    max-height: 100%;
+    /* If we don't have the icon, we can rely on alt text or skip it */
+}
+
+.scanEyeIcon2 {
+    width: 32px;
+    position: relative;
+    max-height: 100%;
+}
+
+@media (max-width: 1400px) {
+    .background {
+        width: 100%;
+        padding: 20px;
+    }
+}

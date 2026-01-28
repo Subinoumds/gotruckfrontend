@@ -9,6 +9,7 @@ import SignupStep3Page from './pages/SignupStep3Page'
 import SignupProPage from './pages/SignupProPage'
 import HomePage from './pages/HomePage'
 import MapPage from './pages/MapPage'
+import FoodTruckPage from './pages/FoodTruckPage'
 import ComingSoonPage from './pages/ComingSoonPage'
 
 function App() {
@@ -36,6 +37,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <MapPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/foodtruck/:id"
+            element={
+              <ProtectedRoute>
+                <FoodTruckPage />
               </ProtectedRoute>
             }
           />

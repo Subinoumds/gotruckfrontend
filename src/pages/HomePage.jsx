@@ -373,7 +373,12 @@ const HomePage = () => {
                     </div>
                   ) : (
                     firstSectionFoodtrucks.map((ft) => (
-                      <div key={ft.id} className={styles.cardFoodTruck}>
+                      <div
+                        key={ft.id}
+                        className={styles.cardFoodTruck}
+                        onClick={() => navigate(`/foodtruck/${ft.id}`)}
+                        style={{ cursor: 'pointer' }}
+                      >
                         <div className={styles.link}>
                           <div className={styles.background2}>
                             <img
@@ -670,7 +675,12 @@ const HomePage = () => {
             <div style={{ width: '100%', padding: '0 20px' }}>
               <HorizontalScroll className={styles.scrollWrapper} style={{ padding: 0 }}>
                 {secondSectionFoodtrucks.map((ft) => (
-                  <div key={ft.id} className={styles.cardFoodTruck9}>
+                  <div
+                    key={ft.id}
+                    className={styles.cardFoodTruck9}
+                    onClick={() => navigate(`/foodtruck/${ft.id}`)}
+                    style={{ cursor: 'pointer' }}
+                  >
                     <div className={styles.link}>
                       <div className={styles.background2}>
                         <img
