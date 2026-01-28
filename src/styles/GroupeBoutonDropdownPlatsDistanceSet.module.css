@@ -99,6 +99,7 @@
   opacity: 0.9;
   position: relative;
   z-index: 9999;
+  color: #fffbf8;
 }
 
 .label {

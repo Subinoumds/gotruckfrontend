@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import Header from '../components/Header'
 import Sidebar from '../components/Sidebar'
@@ -13,6 +14,7 @@ import styles from '../styles/Connexion.module.css'
 
 const HomePage = () => {
   const { user } = useAuth()
+  const navigate = useNavigate()
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [foodtrucks, setFoodtrucks] = useState([])
   const [loading, setLoading] = useState(true)
@@ -567,7 +569,7 @@ const HomePage = () => {
               <button
                 type="button"
                 className={styles.bouton4}
-                onClick={() => setSelectedPlatType('Tous')}
+                onClick={() => navigate('/map')}
               >
                 <div className={styles.inscription}>Voir tout</div>
               </button>

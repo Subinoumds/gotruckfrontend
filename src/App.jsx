@@ -8,6 +8,7 @@ import SignupStep2Page from './pages/SignupStep2Page'
 import SignupStep3Page from './pages/SignupStep3Page'
 import SignupProPage from './pages/SignupProPage'
 import HomePage from './pages/HomePage'
+import MapPage from './pages/MapPage'
 import ComingSoonPage from './pages/ComingSoonPage'
 
 function App() {
@@ -27,6 +28,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <HomePage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/map"
+            element={
+              <ProtectedRoute>
+                <MapPage />
               </ProtectedRoute>
             }
           />

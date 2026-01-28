@@ -29,11 +29,98 @@ const SignupStep3Page = () => {
     { value: 'non', label: 'Non' }
   ]
 
-  const handleChange = (e) => {
+  // Fonction pour demander les permissions du navigateur
+  const requestBrowserPermission = async (permissionName) => {
+    try {
+      switch (permissionName) {
+        case 'notifications_push':
+          // Demander la permission pour les notifications
+          if ('Notification' in window) {
+            const result = await Notification.requestPermission()
+            console.log('Notification permission:', result)
+            if (result === 'denied') {
+              alert('Tu as refusé les notifications. Tu peux les activer dans les paramètres de ton navigateur.')
+            }
+          }
+          break
+          
+        case 'geolocalisation':
+          // Demander la permission pour la géolocalisation
+          if ('geolocation' in navigator) {
+            navigator.geolocation.getCurrentPosition(
+              (position) => {
+                console.log('Geolocation granted:', position.coords)
+              },
+              (error) => {
+                console.log('Geolocation error:', error)
+                if (error.code === error.PERMISSION_DENIED) {
+                  alert('Tu as refusé la géolocalisation. Tu peux l\'activer dans les paramètres de ton navigateur.')
+                }
+              }
+            )
+          }
+          break
+          
+        case 'camera':
+          // Demander la permission pour la caméra
+          if ('mediaDevices' in navigator && 'getUserMedia' in navigator.mediaDevices) {
+            try {
+              const stream = await navigator.mediaDevices.getUserMedia({ video: true })
+              console.log('Camera permission granted')
+              // Arrêter le stream immédiatement après avoir obtenu la permission
+              stream.getTracks().forEach(track => track.stop())
+            } catch (err) {
+              console.log('Camera permission error:', err)
+              if (err.name === 'NotAllowedError') {
+                alert('Tu as refusé l\'accès à la caméra. Tu peux l\'activer dans les paramètres de ton navigateur.')
+              }
+            }
+          }
+          break
+          
+        case 'photos':
+          // Pour les photos, on utilise l'API File System Access si disponible
+          // Sinon, la permission est généralement demandée au moment de l'utilisation
+          if ('showOpenFilePicker' in window) {
+            try {
+              // Déclenche la demande de permission pour accéder aux fichiers
+              await window.showOpenFilePicker({ 
+                types: [{ 
+                  description: 'Images', 
+                  accept: { 'image/*': ['.png', '.jpg', '.jpeg', '.gif', '.webp'] } 
+                }],
+                multiple: false 
+              })
+              console.log('Photos permission granted')
+            } catch (err) {
+              // L'utilisateur a annulé ou refusé
+              if (err.name !== 'AbortError') {
+                console.log('Photos permission:', err)
+              }
+            }
+          }
+          break
+          
+        default:
+          break
+      }
+    } catch (err) {
+      console.error('Permission request error:', err)
+    }
+  }
+
+  const handleChange = async (e) => {
+    const { name, value } = e.target
+    
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: value
     })
+    
+    // Si l'utilisateur sélectionne "Oui", demander la permission
+    if (value === 'oui') {
+      await requestBrowserPermission(name)
+    }
   }
 
   const handleBack = () => {
