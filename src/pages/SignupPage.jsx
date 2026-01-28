@@ -1,22 +1,20 @@
 import { useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
-import { useAuth } from '../contexts/AuthContext'
+import { useNavigate, Link, useLocation } from 'react-router-dom'
 import styles from '../styles/SplashscreenSeConnecter.module.css'
 
 const SignupPage = () => {
+  const location = useLocation()
+  const initialData = location.state || {}
+  
   const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-    confirmPassword: '',
-    nom: '',
-    prenom: '',
-    tel: '',
-    type_user: 'particulier',
+    email: initialData.email || '',
+    password: initialData.password || '',
+    confirmPassword: initialData.confirmPassword || '',
+    type_user: initialData.type_user || 'particulier',
+    is_professional: initialData.is_professional || false,
   })
   const [acceptTerms, setAcceptTerms] = useState(false)
   const [error, setError] = useState('')
-  const [loading, setLoading] = useState(false)
-  const { signup } = useAuth()
   const navigate = useNavigate()
 
   const handleChange = (e) => {
@@ -26,7 +24,7 @@ const SignupPage = () => {
     })
   }
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     setError('')
     
@@ -40,16 +38,16 @@ const SignupPage = () => {
       return
     }
     
-    setLoading(true)
-
-    try {
-      const { confirmPassword, ...signupData } = formData
-      await signup(signupData)
-      navigate('/')
-    } catch (err) {
-      setError(err.response?.data?.error || 'Erreur lors de l\'inscription')
-    } finally {
-      setLoading(false)
+    if (formData.password.length < 6) {
+      setError('Le mot de passe doit contenir au moins 6 caractères')
+      return
+    }
+    
+    // Rediriger vers la page pro ou la page utilisateur normal
+    if (formData.is_professional) {
+      navigate('/signup/pro', { state: formData })
+    } else {
+      navigate('/signup/step1', { state: formData })
     }
   }
 
@@ -232,8 +230,37 @@ const SignupPage = () => {
             </div>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', color: '#000', width: '562px' }}>
-            <label style={{ display: 'flex', alignItems: 'center', gap: '16px', cursor: 'pointer' }}>
+          {/* Option professionnel */}
+          <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', color: '#000', width: '100%', maxWidth: '562px' }}>
+            <label style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', cursor: 'pointer' }}>
+              <input
+                type="checkbox"
+                checked={formData.is_professional}
+                onChange={(e) => setFormData({ ...formData, is_professional: e.target.checked })}
+                style={{ display: 'none' }}
+              />
+              <div className={styles.square} style={{ 
+                border: '1.5px solid #85031f',
+                borderRadius: '4px',
+                backgroundColor: formData.is_professional ? '#85031f' : 'transparent',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0
+              }}>
+                {formData.is_professional && (
+                  <svg className={styles.vectorIcon} viewBox="0 0 12 12" fill="none">
+                    <path d="M2 6L5 9L10 3" stroke="#fffbf8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                )}
+              </div>
+              <span style={{ fontSize: '14px', lineHeight: '1.4' }}>Je suis un professionnel (propriétaire de Food Truck)</span>
+            </label>
+          </div>
+
+          {/* CGU */}
+          <div style={{ display: 'flex', alignItems: 'flex-start', gap: '16px', color: '#000', width: '100%', maxWidth: '562px' }}>
+            <label style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', cursor: 'pointer' }}>
               <input
                 type="checkbox"
                 checked={acceptTerms}
@@ -246,7 +273,8 @@ const SignupPage = () => {
                 backgroundColor: acceptTerms ? '#85031f' : 'transparent',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center'
+                justifyContent: 'center',
+                flexShrink: 0
               }}>
                 {acceptTerms && (
                   <svg className={styles.vectorIcon} viewBox="0 0 12 12" fill="none">
@@ -254,13 +282,13 @@ const SignupPage = () => {
                   </svg>
                 )}
               </div>
-              <span style={{ fontSize: '16px' }}>J'accepte les Conditions Générales d'Utilisation et la Politique de Confidentialité</span>
+              <span style={{ fontSize: '14px', lineHeight: '1.4' }}>J'accepte les Conditions Générales d'Utilisation et la Politique de Confidentialité</span>
             </label>
           </div>
 
-          <button type="submit" className={styles.bouton} disabled={loading} style={{ cursor: loading ? 'not-allowed' : 'pointer', opacity: loading ? 0.7 : 1, border: 'none' }}>
+          <button type="submit" className={styles.bouton} style={{ cursor: 'pointer', border: 'none' }}>
             <div className={styles.seConnecter}>
-              {loading ? 'Inscription...' : 'Continuer l\'inscription'}
+              Continuer l'inscription
             </div>
           </button>
 
