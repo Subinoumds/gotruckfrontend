@@ -477,7 +477,15 @@
 .siteWebIcon {
     height: 32px;
     width: 32px;
-    border-radius: 999px;
+    min-width: 32px;
+    /* Prevent shrinking */
+    border-radius: 50%;
+    background-color: #85031f;
+    /* Red background to make white icons visible */
+    padding: 6px;
+    /* Space inside the circle */
+    box-sizing: border-box;
+    object-fit: contain;
 }
 
 .groupIcon {

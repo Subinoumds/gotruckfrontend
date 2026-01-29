@@ -26,7 +26,7 @@ const FoodTruckServices = ({ foodtruck }) => {
                     <div className={styles.text}>
                         <div className={styles.mapPinCheckParent}>
                             {/* Using same icon or calendar if available, user code used mapPinCheckIcon class for both but logic suggests maybe calendar or star */}
-                            <img className={styles.mapPinCheckIcon} src="/map-pin-check.svg" alt="" />
+                            <img className={styles.mapPinCheckIcon} src="/party-popper.svg" alt="" />
                             <b className={styles.privatisationVnements}>{`Privatisation & évènements`}</b>
                         </div>
                         <div className={styles.beniBurritosParcourtContainer}>

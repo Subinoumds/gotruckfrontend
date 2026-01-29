@@ -7,7 +7,8 @@ import { favoriService } from '../services/favoriService'
 import { getImageUrl } from '../services/api'
 import Footer from '../components/Footer'
 import FoodTruckServices from '../components/FoodTruckServices'
-import FoodTruckMenu from '../components/FoodTruckMenu'
+import FoodTruckMenu from '../components/FoodTruckMenu';
+import FoodTruckPayment from '../components/FoodTruckPayment';
 
 // Use the same footer as MapPage/HomePage if possible, but for now I will create a simple wrapper or import if it exists. 
 // Since there's no standalone Footer component in the previously viewed files (it was inline in MapPage), 
@@ -61,6 +62,21 @@ const FoodTruckPage = () => {
         } catch (err) {
             console.error("Error toggling favorite", err)
         }
+    }
+
+    // Helper to extract social links from text like "Facebook: url\nInstagram: url"
+    const getSocialLink = (text, type) => {
+        if (!text) return null;
+        // Simple regex to find URL after type
+        // e.g. "Facebook: https://..." or just containing "facebook.com"
+        const lines = text.split('\n');
+        for (const line of lines) {
+            if (line.toLowerCase().includes(type.toLowerCase())) {
+                const urlMatch = line.match(/(https?:\/\/[^\s]+)/);
+                return urlMatch ? urlMatch[0] : null;
+            }
+        }
+        return null;
     }
 
     if (loading) return <div className={styles.loading}>Chargement...</div>
@@ -196,7 +212,11 @@ const FoodTruckPage = () => {
                         >
                             <b className={styles.propos}>Menu</b>
                         </div>
-                        <div className={styles.link2}>
+                        <div
+                            className={activeTab === 'paiement' ? styles.link : styles.link2}
+                            onClick={() => setActiveTab('paiement')}
+                            style={{ cursor: 'pointer' }}
+                        >
                             <b className={styles.propos}>Moyens de paiement</b>
                         </div>
                         <div className={styles.link2}>
@@ -211,60 +231,63 @@ const FoodTruckPage = () => {
                 {activeTab === 'propos' && (
                     <div className={styles.background}>
                         <div className={styles.quiEstBniContainer}>
-                            <b>Qui est {foodtruck.nom} ?<br /></b>
                             <span className={styles.beniBurritosEst}>
-                                {foodtruck.description || "Aucune description disponible pour ce food truck."}
-                                <br /><br />
+                                {foodtruck.description || "Aucune description disponible."}
                             </span>
-
-                            <b>Esprit et cuisine<br /></b>
-                            <span className={styles.beniBurritosEst}>
-                                Ce camion propose une cuisine authentique et qualitative. {foodtruck.type_cuisine} est à l'honneur !
-                                <br /><br />
-                            </span>
-
-                            <b>Contacts & Réseaux Sociaux</b>
                         </div>
 
                         <div className={styles.frameParent}>
+                            {foodtruck.tel && (
+                                <div className={styles.siteWebParent}>
+                                    <img className={styles.siteWebIcon} src="/phone.svg" alt="" />
+                                    <div className={styles.beniBurritos}>{foodtruck.tel}</div>
+                                </div>
+                            )}
+
                             {foodtruck.site_web && (
                                 <div className={styles.siteWebParent}>
-                                    <div style={{
-                                        backgroundColor: '#85031f',
-                                        padding: '6px',
-                                        borderRadius: '4px',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                        marginRight: '8px'
-                                    }}>
-                                        <img src="/siteinternet.svg" alt="" style={{ width: '20px', height: '20px' }} />
-                                    </div>
-                                    <a href={foodtruck.site_web} target="_blank" rel="noopener" className={styles.beniBurritos} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                        {foodtruck.site_web.replace(/^https?:\/\/(www\.)?/, '')}
+                                    <img className={styles.siteWebIcon} src="/siteinternet.svg" alt="" />
+                                    <a href={foodtruck.site_web} target="_blank" rel="noopener noreferrer" className={styles.beniBurritos} style={{ textDecoration: 'none', color: 'inherit' }}>
+                                        {foodtruck.site_web}
                                     </a>
                                 </div>
                             )}
-                            {foodtruck.telephone && (
+
+                            {foodtruck.email && (
                                 <div className={styles.siteWebParent}>
-                                    <img className={styles.siteWebIcon} src="/g-envers.svg" alt="" />
-                                    <div className={styles.beniBurritos}>{foodtruck.telephone}</div>
+                                    <img className={styles.siteWebIcon} src="/mail.svg" alt="" />
+                                    <a href={`mailto:${foodtruck.email}`} className={styles.beniBurritos} style={{ textDecoration: 'none', color: 'inherit' }}>
+                                        {foodtruck.email}
+                                    </a>
                                 </div>
                             )}
-                            {/* Social placeholders if not in DB */}
-                            <div className={styles.siteWebParent}>
-                                <img className={styles.groupIcon} src="/insta.svg" alt="" />
-                                <div className={styles.beniBurritos}>@{foodtruck.nom.replace(/\s+/g, '').toLowerCase()}</div>
-                            </div>
+
+                            {/* Social Media Links */}
+                            {getSocialLink(foodtruck.reseaux_sociaux, 'facebook') && (
+                                <div className={styles.siteWebParent}>
+                                    <img className={styles.siteWebIcon} src="/facebookpagefoodtruck.svg" alt="Facebook" style={{ width: '32px', height: '32px' }} />
+                                    <a href={getSocialLink(foodtruck.reseaux_sociaux, 'facebook')} target="_blank" rel="noopener noreferrer" className={styles.beniBurritos} style={{ textDecoration: 'none', color: 'inherit' }}>
+                                        Facebook
+                                    </a>
+                                </div>
+                            )}
+
+                            {getSocialLink(foodtruck.reseaux_sociaux, 'instagram') && (
+                                <div className={styles.siteWebParent}>
+                                    <img className={styles.siteWebIcon} src="/insta.svg" alt="Instagram" style={{ width: '32px', height: '32px' }} />
+                                    <a href={getSocialLink(foodtruck.reseaux_sociaux, 'instagram')} target="_blank" rel="noopener noreferrer" className={styles.beniBurritos} style={{ textDecoration: 'none', color: 'inherit' }}>
+                                        Instagram
+                                    </a>
+                                </div>
+                            )}
                         </div>
                     </div>
                 )}
-                {activeTab === 'services' && (
-                    <FoodTruckServices foodtruck={foodtruck} />
-                )}
-                {activeTab === 'menu' && (
-                    <FoodTruckMenu foodtruck={foodtruck} />
-                )}
+
+                {activeTab === 'services' && <FoodTruckServices foodtruck={foodtruck} />}
+                {activeTab === 'menu' && <FoodTruckMenu foodtruck={foodtruck} />}
+                {activeTab === 'paiement' && <FoodTruckPayment foodtruck={foodtruck} />}
+
             </div>
 
             <Footer />

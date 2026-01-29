@@ -1,0 +1,78 @@
+.pageFoodTruckPayment {
+    width: 100%;
+    position: relative;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    text-align: left;
+    font-size: 16px;
+    color: #85031f;
+    font-family: Poppins;
+}
+
+.background {
+    width: 100%;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    background-color: #fffbf8;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 40px;
+    box-sizing: border-box;
+    font-size: 20px;
+    color: #ec6827;
+}
+
+.textWrapper {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    width: 100%;
+}
+
+.walletParent {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.walletIcon {
+    height: 24px;
+    width: 24px;
+    position: relative;
+}
+
+.moyensDePaiement {
+    position: relative;
+    line-height: 100%;
+}
+
+.espceCarteBancaireContainer {
+    width: 100%;
+    position: relative;
+    font-size: 16px;
+    line-height: 140%;
+    color: #0f0f0f;
+    display: inline-block;
+}
+
+.espceCarteBancaireTicketR {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    padding-left: 21px;
+}
+
+.espce {
+    margin-bottom: 8px;
+}
