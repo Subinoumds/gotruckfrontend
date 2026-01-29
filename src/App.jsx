@@ -11,6 +11,7 @@ import HomePage from './pages/HomePage'
 import MapPage from './pages/MapPage'
 import FavoritesPage from './pages/FavoritesPage'
 import FoodTruckPage from './pages/FoodTruckPage'
+import ProfilePage from './pages/ProfilePage'
 import ComingSoonPage from './pages/ComingSoonPage'
 
 function App() {
@@ -54,6 +55,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <FoodTruckPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <ProfilePage />
               </ProtectedRoute>
             }
           />

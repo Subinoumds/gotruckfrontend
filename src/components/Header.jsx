@@ -1,6 +1,9 @@
+import { useNavigate } from 'react-router-dom'
 import styles from '../styles/Header.module.css'
 
 const Header = ({ onMenuClick }) => {
+  const navigate = useNavigate()
+
   return (
     <div className={styles.header}>
       <div className={styles.container}>
@@ -30,18 +33,26 @@ const Header = ({ onMenuClick }) => {
                 </div>
               </div>
             </div>
-            <div className={styles.containerIcon} style={{
-              width: '44px',
-              height: '44px',
-              borderRadius: '50%',
-              backgroundColor: '#85031f',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: '#fffbf8',
-              fontSize: '18px',
-              fontWeight: 600
-            }}>
+            <div
+              className={styles.containerIcon}
+              onClick={() => navigate('/profile')}
+              style={{
+                width: '44px',
+                height: '44px',
+                borderRadius: '50%',
+                backgroundColor: '#85031f',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: '#fffbf8',
+                fontSize: '18px',
+                fontWeight: 600,
+                cursor: 'pointer',
+                transition: 'all 0.2s ease'
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#6a0218'}
+              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#85031f'}
+            >
               U
             </div>
           </div>
