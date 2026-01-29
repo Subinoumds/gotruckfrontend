@@ -261,3 +261,43 @@
     color: #0f0f0f;
     font-size: 16px;
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .background {
+        padding: 16px 20px 32px;
+        gap: 32px;
+    }
+
+    .reviewSummary {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px;
+    }
+
+    .googleLogo {
+        width: 100px;
+    }
+
+    .ratingLabel {
+        font-size: 18px;
+    }
+
+    .leaveReviewButton {
+        width: 100%;
+        padding: 12px 16px;
+    }
+
+    .reviewsList {
+        grid-template-columns: 1fr;
+    }
+
+    .reviewCard {
+        padding: 16px;
+    }
+
+    .star {
+        width: 20px;
+        height: 20px;
+    }
+}

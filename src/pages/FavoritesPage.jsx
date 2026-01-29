@@ -196,7 +196,8 @@ const FavoritesPage = () => {
                                             src={getImageUrl(ft.photo_url) || '/Container.png'}
                                             alt={ft.nom || 'Food Truck'}
                                             style={{
-                                                width: '254px',
+                                                width: '100%',
+                                                maxWidth: '254px',
                                                 height: '192px',
                                                 objectFit: 'cover',
                                                 borderRadius: '12px 12px 0 0'

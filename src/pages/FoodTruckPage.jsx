@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import styles from '../styles/FoodTruckPage.module.css'
 import Sidebar from '../components/Sidebar'
+import Header from '../components/Header'
 import { foodtruckService } from '../services/foodtruckService'
 import { favoriService } from '../services/favoriService'
 import { getImageUrl } from '../services/api'
@@ -99,43 +100,7 @@ const FoodTruckPage = () => {
             {/* Header Wrapper */}
             <div className={styles.headerWrapper}>
                 <div className={styles.header}>
-                    <div className={styles.container}>
-                        <div className={styles.container2}>
-                            <div className={styles.container3}>
-                                <div className={styles.menuBurger} onClick={() => setSidebarOpen(true)}>
-                                    <img className={styles.calque1Icon} src="/menu-burger.svg" alt="Menu" />
-                                </div>
-                                <img
-                                    className={styles.logoTitreGotruck1Icon}
-                                    src="/logo-header.png"
-                                    alt="GoTruck"
-                                    onClick={() => navigate('/')}
-                                    style={{ cursor: 'pointer' }}
-                                />
-                            </div>
-                            <div className={styles.containerParent}>
-                                <div className={styles.container4}>
-                                    <div className={styles.container5}>
-                                        <div className={styles.container6}>
-                                            <div className={styles.button}>
-                                                <div className={styles.container7}>
-                                                    <b className={styles.fr}>FR</b>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className={styles.container8}>
-                                            <div className={styles.button2}>
-                                                <div className={styles.container7}>
-                                                    <b className={styles.fr}>EUR</b>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className={styles.containerIcon}>U</div>
-                            </div>
-                        </div>
-                    </div>
+                    <Header onMenuClick={() => setSidebarOpen(true)} />
                 </div>
             </div>
 

@@ -19,13 +19,13 @@
 
 .headerWrapper {
     width: 100%;
-    height: 137px;
+    min-height: 137px;
     background: linear-gradient(90deg, #85031f, #ec6827);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 0px 32px;
+    padding: 32px;
     box-sizing: border-box;
     text-align: center;
     font-size: 14px;
@@ -538,26 +538,135 @@
 }
 
 @media (max-width: 768px) {
+
+    /* Header responsive */
     .headerWrapper {
         padding: 0 16px;
+        height: auto;
+    }
+
+    .header {
+        height: auto;
     }
 
     .container {
         padding: 0 16px;
+        height: auto;
+        min-height: 60px;
     }
 
-    .langCurrency,
+    .container2 {
+        height: auto;
+        min-height: 60px;
+    }
+
+    /* Hide language/currency buttons on mobile */
+    .containerParent {
+        width: auto;
+    }
+
+    .container4,
+    .container5 {
+        display: none;
+    }
+
+    /* Reduce logo size */
     .logoTitreGotruck1Icon {
-        /* Adjust visibility if needed */
+        width: 100px;
     }
 
+    /* Breadcrumb responsive */
+    .paragraph {
+        padding: 0 16px;
+        font-size: 12px;
+    }
+
+    .linkToutes,
+    .linkTrail,
+    .linkTrail2 {
+        font-size: 12px;
+    }
+
+    /* Title and button responsive */
     .beniBurritosParent {
         flex-direction: column;
         align-items: flex-start;
+        padding: 0 16px;
+        gap: 12px;
+    }
+
+    .beniBurritosTitle {
+        font-size: 24px;
+    }
+
+    .bouton {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Gallery responsive */
+    .container10 {
+        padding: 0 16px;
+    }
+
+    .container11 {
+        height: auto;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .thpTrailDeHauteProvence {
+        width: 100%;
+        height: 250px;
+        border-radius: 12px;
+    }
+
+    .thpTrailDeHauteProvenceParent {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+
+    .thpTrailDeHauteProvence2 {
+        height: 150px;
+        border-radius: 12px;
+    }
+
+    .thpTrailDeHauteProvence4,
+    .thpTrailDeHauteProvence5 {
+        height: 150px;
+        border-radius: 12px;
+    }
+
+    /* Tabs responsive */
+    .tabParent {
+        padding: 0 16px;
+    }
+
+    .tab {
+        padding: 12px 16px;
     }
 
     .nav {
-        padding-bottom: 10px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 8px;
+    }
+
+    .nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .link,
+    .link2 {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    /* Content responsive */
+    .background {
+        padding: 20px 16px;
     }
 
     .frameParent {
@@ -565,8 +674,7 @@
         align-items: flex-start;
     }
 
-    .thpTrailDeHauteProvenceParent {
-        display: none;
-        /* Hide extra photos on mobile to save space if needed, or stack them */
+    .siteWebParent {
+        width: 100%;
     }
 }

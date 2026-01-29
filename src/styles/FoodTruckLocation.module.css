@@ -205,3 +205,34 @@
     color: #666;
     font-style: italic;
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .background {
+        padding: 20px 16px;
+        gap: 24px;
+    }
+
+    .frameParent {
+        flex-direction: column;
+    }
+
+    .mapImageIcon {
+        width: 100%;
+        height: 200px;
+    }
+
+    .scheduleContainer,
+    .currentLocationText {
+        width: 100%;
+    }
+
+    .boutonParent {
+        flex-direction: column;
+    }
+
+    .bouton3,
+    .bouton4 {
+        width: 100%;
+    }
+}
