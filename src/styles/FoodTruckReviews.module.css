@@ -1,0 +1,263 @@
+.pageFoodTruckReviews {
+    width: 100%;
+    position: relative;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    text-align: left;
+    font-size: 16px;
+    color: #85031f;
+    font-family: Poppins;
+}
+
+.background {
+    width: 100%;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+    background-color: #fffbf8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 40px 56px;
+    box-sizing: border-box;
+    gap: 56px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    font-family: Inter;
+}
+
+.reviewsContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.reviewSummary {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px;
+    gap: 20px;
+    text-align: left;
+    font-size: 24px;
+    color: #1a1a1a;
+}
+
+.summaryLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.googleBadge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.googleLogo {
+    width: 122px;
+    max-height: 100%;
+}
+
+.ratingLabel {
+    position: relative;
+    line-height: 30px;
+    font-weight: 500;
+}
+
+.ratingInfo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.ratingValue {
+    position: relative;
+    line-height: 20px;
+    font-weight: 600;
+}
+
+.stars {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.star {
+    width: 24px;
+    height: 24px;
+    color: #fbbc04;
+}
+
+.reviewCount {
+    position: relative;
+    font-size: 12px;
+    line-height: 15px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.leaveReviewButton {
+    border-radius: 8px;
+    background-color: #1c54e3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 24px;
+    gap: 10px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    font-family: Inter;
+}
+
+.leaveReviewButton:hover {
+    background-color: #1547c7;
+}
+
+.leaveReviewText {
+    position: relative;
+    line-height: 20px;
+    font-weight: 500;
+}
+
+.externalLinkIcon {
+    height: 24px;
+    width: 24px;
+}
+
+.reviewsList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    width: 100%;
+}
+
+.reviewCard {
+    box-shadow: 0px 43px 12px rgba(0, 0, 0, 0), 0px 28px 11px rgba(0, 0, 0, 0.01),
+        0px 16px 9px rgba(0, 0, 0, 0.05), 0px 7px 7px rgba(0, 0, 0, 0.09),
+        0px 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    background: linear-gradient(126.27deg, #ffd8f7, #fff 19.35%, #fff 58.43%, #d6e7ff);
+    border: 0.5px solid #3686f7;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+    gap: 16px;
+}
+
+.reviewHeader {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.userAvatar {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #ec6827;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.userInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    text-align: left;
+    color: #1a1a1a;
+}
+
+.userName {
+    width: 100%;
+    position: relative;
+    line-height: 20px;
+    font-weight: 600;
+}
+
+.reviewDate {
+    width: 100%;
+    position: relative;
+    font-size: 12px;
+    line-height: 15px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.googleIcon {
+    width: 24px;
+    max-height: 100%;
+}
+
+.reviewText {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    color: #1a1a1a;
+}
+
+.commentText {
+    width: 100%;
+    position: relative;
+    line-height: 20px;
+}
+
+.viewAllButton {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    color: #fffbf8;
+    font-family: Poppins;
+}
+
+.viewAllBtn {
+    height: 48px;
+    border-radius: 9999px;
+    background-color: #85031f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    box-sizing: border-box;
+    gap: 8px;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    font-family: Poppins;
+    color: #fffbf8;
+}
+
+.viewAllBtn:hover {
+    background-color: #6a0218;
+}
+
+.noReviews {
+    padding: 40px 20px;
+    text-align: center;
+    color: #0f0f0f;
+    font-size: 16px;
+}

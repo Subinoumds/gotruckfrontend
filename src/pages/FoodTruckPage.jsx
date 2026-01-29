@@ -9,6 +9,8 @@ import Footer from '../components/Footer'
 import FoodTruckServices from '../components/FoodTruckServices'
 import FoodTruckMenu from '../components/FoodTruckMenu';
 import FoodTruckPayment from '../components/FoodTruckPayment';
+import FoodTruckReviews from '../components/FoodTruckReviews';
+import FoodTruckLocation from '../components/FoodTruckLocation';
 
 // Use the same footer as MapPage/HomePage if possible, but for now I will create a simple wrapper or import if it exists. 
 // Since there's no standalone Footer component in the previously viewed files (it was inline in MapPage), 
@@ -219,10 +221,18 @@ const FoodTruckPage = () => {
                         >
                             <b className={styles.propos}>Moyens de paiement</b>
                         </div>
-                        <div className={styles.link2}>
+                        <div
+                            className={activeTab === 'avis' ? styles.link : styles.link2}
+                            onClick={() => setActiveTab('avis')}
+                            style={{ cursor: 'pointer' }}
+                        >
                             <b className={styles.propos}>Avis Google</b>
                         </div>
-                        <div className={styles.link2}>
+                        <div
+                            className={activeTab === 'location' ? styles.link : styles.link2}
+                            onClick={() => setActiveTab('location')}
+                            style={{ cursor: 'pointer' }}
+                        >
                             <b className={styles.propos}>Localiser le Food Truck</b>
                         </div>
                     </div>
@@ -287,6 +297,8 @@ const FoodTruckPage = () => {
                 {activeTab === 'services' && <FoodTruckServices foodtruck={foodtruck} />}
                 {activeTab === 'menu' && <FoodTruckMenu foodtruck={foodtruck} />}
                 {activeTab === 'paiement' && <FoodTruckPayment foodtruck={foodtruck} />}
+                {activeTab === 'avis' && <FoodTruckReviews foodtruckId={id} />}
+                {activeTab === 'location' && <FoodTruckLocation foodtruck={foodtruck} />}
 
             </div>
 
