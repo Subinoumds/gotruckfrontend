@@ -9,6 +9,7 @@ import SignupStep3Page from './pages/SignupStep3Page'
 import SignupProPage from './pages/SignupProPage'
 import HomePage from './pages/HomePage'
 import MapPage from './pages/MapPage'
+import FavoritesPage from './pages/FavoritesPage'
 import FoodTruckPage from './pages/FoodTruckPage'
 import ComingSoonPage from './pages/ComingSoonPage'
 
@@ -37,6 +38,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <MapPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/favoris"
+            element={
+              <ProtectedRoute>
+                <FavoritesPage />
               </ProtectedRoute>
             }
           />
