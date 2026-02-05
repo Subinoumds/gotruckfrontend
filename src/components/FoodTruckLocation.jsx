@@ -47,11 +47,25 @@ const FoodTruckLocation = ({ foodtruck }) => {
 
                 return (
                     <ul className={styles.scheduleList}>
-                        {Object.entries(schedule).map(([day, hours]) => (
-                            <li key={day} className={styles.scheduleItem}>
-                                {dayNames[day.toLowerCase()] || day} : {hours || 'Fermé'}
-                            </li>
-                        ))}
+                        {Object.entries(schedule).map(([day, hours]) => {
+                            let displayHours = 'Fermé';
+
+                            // Handle object format (new trucker interface)
+                            if (hours && typeof hours === 'object') {
+                                displayHours = hours.ouvert ? `${hours.debut} - ${hours.fin}` : 'Fermé';
+                            }
+                            // Handle string format (legacy or simple text)
+                            else if (typeof hours === 'string') {
+                                displayHours = hours || 'Fermé';
+                            }
+
+                            return (
+                                <li key={day} className={styles.scheduleItem}>
+                                    <span style={{ fontWeight: 600, minWidth: '80px', display: 'inline-block' }}>{dayNames[day.toLowerCase()] || day} :</span>
+                                    <span> {displayHours}</span>
+                                </li>
+                            );
+                        })}
                     </ul>
                 );
             }
