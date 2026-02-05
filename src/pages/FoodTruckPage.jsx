@@ -86,12 +86,15 @@ const FoodTruckPage = () => {
     if (error) return <div className={styles.error}>{error}</div>
     if (!foodtruck) return <div className={styles.error}>Food Truck introuvable</div>
 
-    const mainPhoto = getImageUrl(foodtruck.photo_url) || '/Container.png'
-    // Placeholder for extra photos if the API doesn't provide multiple photos yet
-    const photo2 = '/Container.png'
-    const photo3 = '/Container.png'
-    const photo4 = '/Container.png'
-    const photo5 = '/Container.png'
+    const extraPhotos = foodtruck.photos && Array.isArray(foodtruck.photos) ? foodtruck.photos : [];
+
+    const mainPhoto = getImageUrl(foodtruck.photo_url) || '/Container.png';
+
+    // Use uploaded photos or fallback to placeholder
+    const photo2 = extraPhotos.length > 0 ? getImageUrl(extraPhotos[0]) : '/Container.png';
+    const photo3 = extraPhotos.length > 1 ? getImageUrl(extraPhotos[1]) : '/Container.png';
+    const photo4 = extraPhotos.length > 2 ? getImageUrl(extraPhotos[2]) : '/Container.png';
+    const photo5 = extraPhotos.length > 3 ? getImageUrl(extraPhotos[3]) : '/Container.png';
 
     return (
         <div className={styles.pageFoodTruckPropos}>

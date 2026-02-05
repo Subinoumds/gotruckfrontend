@@ -4,7 +4,7 @@ import styles from '../styles/FoodTruckLocation.module.css';
 const FoodTruckLocation = ({ foodtruck }) => {
     // Parse horaires from database (assuming it's stored as JSON or text)
     const renderSchedule = () => {
-        console.log('Horaires data:', foodtruck.horaires, typeof foodtruck.horaires);
+        // console.log('Horaires data:', foodtruck.horaires, typeof foodtruck.horaires);
 
         if (!foodtruck.horaires) {
             return (

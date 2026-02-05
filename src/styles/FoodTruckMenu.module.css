@@ -62,7 +62,7 @@
     background-repeat: no-repeat;
     background-position: top;
     background-color: #eee;
-    background-image: url('/Container.png');
+    /* background-image: url('/Container.png'); removed to avoid artifacts */
     /* Default placeholder if no image */
 }
 
