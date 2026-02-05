@@ -1,0 +1,435 @@
+.container {
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    padding-bottom: 80px;
+    /* Space for mobile bottom nav */
+}
+
+.header {
+    background-color: #85031f;
+    color: white;
+    padding: 20px 40px;
+}
+
+.headerTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.btnLogout {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btnLogout:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.header h1 {
+    margin: 0 0 20px 0;
+    font-size: 28px;
+}
+
+.nav {
+    display: flex;
+    gap: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 15px;
+}
+
+.nav a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+
+.nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.nav a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-weight: 600;
+}
+
+.content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+    margin-top: 0;
+    font-size: 22px;
+    color: #85031f;
+}
+
+.select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
+    cursor: pointer;
+}
+
+.status {
+    margin: 20px 0;
+}
+
+.statusActive,
+.statusInactive {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.statusActive {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.statusInactive {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.statusDot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: currentColor;
+}
+
+.statusActive .statusDot {
+    animation: pulse 2s infinite;
+}
+
+/* .statusInactive .statusDot {
+    background-color: #6c757d;
+} */
+/* This rule is now redundant due to currentColor */
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.warning {
+    background-color: #fff3cd;
+    color: #856404;
+    padding: 12px;
+    border-radius: 4px;
+    margin-top: 10px;
+    border: 1px solid #ffeaa7;
+}
+
+.btnActivate,
+.btnDeactivate,
+.btnPrimary,
+.btnSubmit {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Poppins', sans-serif;
+    min-height: 48px;
+    /* Touch-friendly */
+}
+
+.btnActivate {
+    background-color: #28a745;
+    color: white;
+    width: 100%;
+}
+
+.btnActivate:hover:not(:disabled) {
+    background-color: #218838;
+}
+
+.btnDeactivate {
+    background-color: #dc3545;
+    color: white;
+    width: 100%;
+}
+
+.btnDeactivate:hover:not(:disabled) {
+    background-color: #c82333;
+}
+
+.btnPrimary,
+.btnSubmit {
+    background-color: #85031f;
+    color: white;
+}
+
+.btnPrimary:hover:not(:disabled),
+.btnSubmit:hover:not(:disabled) {
+    background-color: #6a0219;
+}
+
+.btnActivate:disabled,
+.btnDeactivate:disabled,
+.btnPrimary:disabled,
+.btnSubmit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border: 1px solid #f5c6cb;
+}
+
+.success {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border: 1px solid #c3e6cb;
+}
+
+.formGroup {
+    margin-bottom: 20px;
+}
+
+.formGroup label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.formGroup input,
+.formGroup textarea,
+.formGroup select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.formGroup textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.btnSubmit {
+    background-color: #85031f;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-family: 'Poppins', sans-serif;
+}
+
+.btnSubmit:hover:not(:disabled) {
+    background-color: #6a0219;
+}
+
+.btnSubmit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Mobile Navigation - Hidden on desktop */
+.mobileNav {
+    display: none;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .container {
+        padding-bottom: 70px;
+        /* Space for bottom nav */
+    }
+
+    .header {
+        padding: 12px 15px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    .headerTop {
+        margin-bottom: 0;
+    }
+
+    .header h1 {
+        font-size: 18px;
+        margin: 0;
+    }
+
+    .btnLogout {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    /* Hide desktop nav on mobile */
+    .nav {
+        display: none !important;
+    }
+
+    /* Show mobile bottom navigation */
+    .mobileNav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: white;
+        border-top: 1px solid #ddd;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 8px 0 calc(8px + env(safe-area-inset-bottom));
+        z-index: 1000;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .mobileNavItem {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        padding: 8px 12px;
+        text-decoration: none;
+        color: #666;
+        font-size: 11px;
+        font-weight: 500;
+        transition: all 0.2s;
+        min-width: 70px;
+        min-height: 56px;
+        border-radius: 8px;
+    }
+
+    .mobileNavItem:active {
+        background-color: #f0f0f0;
+    }
+
+    .mobileNavItem.active {
+        color: #85031f;
+        font-weight: 600;
+    }
+
+    .mobileNavIcon {
+        font-size: 24px;
+        line-height: 1;
+    }
+
+    .content {
+        padding: 20px 15px;
+    }
+
+    .card {
+        padding: 20px 15px;
+        margin-bottom: 15px;
+        border-radius: 12px;
+    }
+
+    .card h2 {
+        font-size: 18px;
+    }
+
+    .formGroup {
+        margin-bottom: 15px;
+    }
+
+    .formGroup input,
+    .formGroup textarea,
+    .formGroup select,
+    .select {
+        font-size: 16px;
+        /* Prevent zoom on iOS */
+        padding: 14px;
+        /* Larger touch target */
+    }
+
+    .btnPrimary,
+    .btnSubmit,
+    .btnActivate,
+    .btnDeactivate {
+        width: 100%;
+        padding: 16px 20px;
+        font-size: 16px;
+        min-height: 52px;
+    }
+
+    .statusActive,
+    .statusInactive {
+        font-size: 16px;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 16px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .mobileNavItem {
+        font-size: 10px;
+        padding: 6px 8px;
+        min-width: 60px;
+        min-height: 52px;
+    }
+
+    .mobileNavIcon {
+        font-size: 22px;
+    }
+}

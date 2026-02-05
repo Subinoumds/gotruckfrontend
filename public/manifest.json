@@ -1,0 +1,55 @@
+{
+    "name": "GoTruck - Food Trucks près de toi",
+    "short_name": "GoTruck",
+    "description": "Trouve les meilleurs food trucks près de toi",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#85031f",
+    "theme_color": "#85031f",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "/logo-header.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/logo-header.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "categories": [
+        "food",
+        "lifestyle"
+    ],
+    "screenshots": [],
+    "shortcuts": [
+        {
+            "name": "Carte",
+            "short_name": "Carte",
+            "description": "Voir la carte des food trucks",
+            "url": "/map",
+            "icons": [
+                {
+                    "src": "/logo-header.png",
+                    "sizes": "96x96"
+                }
+            ]
+        },
+        {
+            "name": "Favoris",
+            "short_name": "Favoris",
+            "description": "Voir mes food trucks favoris",
+            "url": "/favoris",
+            "icons": [
+                {
+                    "src": "/logo-header.png",
+                    "sizes": "96x96"
+                }
+            ]
+        }
+    ]
+}

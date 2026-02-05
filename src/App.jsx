@@ -13,6 +13,10 @@ import FavoritesPage from './pages/FavoritesPage'
 import FoodTruckPage from './pages/FoodTruckPage'
 import ProfilePage from './pages/ProfilePage'
 import ComingSoonPage from './pages/ComingSoonPage'
+import TruckerLocationPage from './pages/trucker/LocationPage'
+import TruckerProfilePage from './pages/trucker/ProfilePage'
+import TruckerFoodtruckPage from './pages/trucker/FoodtruckPage'
+import TruckerCreatePage from './pages/trucker/CreateFoodtruckPage'
 
 function App() {
   return (
@@ -63,6 +67,38 @@ function App() {
             element={
               <ProtectedRoute>
                 <ProfilePage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/trucker/location"
+            element={
+              <ProtectedRoute>
+                <TruckerLocationPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/trucker/profile"
+            element={
+              <ProtectedRoute>
+                <TruckerProfilePage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/trucker/foodtruck"
+            element={
+              <ProtectedRoute>
+                <TruckerFoodtruckPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/trucker/create"
+            element={
+              <ProtectedRoute>
+                <TruckerCreatePage />
               </ProtectedRoute>
             }
           />

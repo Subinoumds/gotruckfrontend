@@ -12,10 +12,14 @@ const LoginPage = () => {
   const { login, user, logout, loading: authLoading } = useAuth()
   const navigate = useNavigate()
 
-  // Si déjà connecté, rediriger vers home (seulement après le chargement initial)
+  // Si déjà connecté, rediriger selon le type d'utilisateur
   useEffect(() => {
     if (!authLoading && user) {
-      navigate('/')
+      if (user.type_user === 'trucker') {
+        navigate('/trucker/location')
+      } else {
+        navigate('/')
+      }
     }
   }, [user, authLoading, navigate])
 
@@ -37,8 +41,14 @@ const LoginPage = () => {
     setLoading(true)
 
     try {
-      await login(email, password)
-      navigate('/')
+      const data = await login(email, password)
+
+      // Rediriger selon le type d'utilisateur
+      if (data.user && data.user.type_user === 'trucker') {
+        navigate('/trucker/location')
+      } else {
+        navigate('/')
+      }
     } catch (err) {
       console.error('Erreur login:', err)
       const errorMsg = err.response?.data?.error || err.message || 'Erreur de connexion'
@@ -59,14 +69,14 @@ const LoginPage = () => {
         <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '2%', left: '56%' }} />
         <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '2%', left: '74%' }} />
         <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '2%', left: '92%' }} />
-        
+
         {/* Rangée 2 - décalée - burger truck burger truck burger */}
         <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '14%', left: '11%' }} />
         <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '14%', left: '29%' }} />
         <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '14%', left: '47%' }} />
         <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '14%', left: '65%' }} />
         <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '14%', left: '83%' }} />
-        
+
         {/* Rangée 3 */}
         <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '26%', left: '2%' }} />
         <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '26%', left: '20%' }} />
@@ -74,14 +84,14 @@ const LoginPage = () => {
         <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '26%', left: '56%' }} />
         <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '26%', left: '74%' }} />
         <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '26%', left: '92%' }} />
-        
+
         {/* Rangée 4 - décalée */}
         <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '38%', left: '11%' }} />
         <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '38%', left: '29%' }} />
         <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '38%', left: '47%' }} />
         <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '38%', left: '65%' }} />
         <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '38%', left: '83%' }} />
-        
+
         {/* Rangée 5 */}
         <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '50%', left: '2%' }} />
         <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '50%', left: '20%' }} />
@@ -89,14 +99,14 @@ const LoginPage = () => {
         <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '50%', left: '56%' }} />
         <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '50%', left: '74%' }} />
         <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '50%', left: '92%' }} />
-        
+
         {/* Rangée 6 - décalée */}
         <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '62%', left: '11%' }} />
         <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '62%', left: '29%' }} />
         <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '62%', left: '47%' }} />
         <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '62%', left: '65%' }} />
         <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '62%', left: '83%' }} />
-        
+
         {/* Rangée 7 */}
         <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '74%', left: '2%' }} />
         <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '74%', left: '20%' }} />
@@ -104,14 +114,14 @@ const LoginPage = () => {
         <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '74%', left: '56%' }} />
         <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '74%', left: '74%' }} />
         <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '74%', left: '92%' }} />
-        
+
         {/* Rangée 8 - décalée */}
         <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '86%', left: '11%' }} />
         <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '86%', left: '29%' }} />
         <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '86%', left: '47%' }} />
         <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '86%', left: '65%' }} />
         <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '86%', left: '83%' }} />
-        
+
         {/* Rangée 9 */}
         <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '98%', left: '2%' }} />
         <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '98%', left: '20%' }} />
@@ -120,7 +130,7 @@ const LoginPage = () => {
         <img src="/truckconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '98%', left: '74%' }} />
         <img src="/burgerconnexion.svg" alt="" className={styles.patternIcon} style={{ top: '98%', left: '92%' }} />
       </div>
-      
+
       <div className={styles.frameParent}>
         <div className={styles.frameChild} style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
           <img src="/logo-header.png" alt="GoTruck" style={{ height: '35px', width: 'auto' }} />
@@ -139,9 +149,9 @@ const LoginPage = () => {
           </div>
 
           {error && (
-            <div style={{ 
-              color: '#dc3545', 
-              fontSize: '14px', 
+            <div style={{
+              color: '#dc3545',
+              fontSize: '14px',
               padding: '8px',
               backgroundColor: '#f8d7da',
               borderRadius: '4px',
@@ -209,7 +219,7 @@ const LoginPage = () => {
                   onChange={(e) => setRememberMe(e.target.checked)}
                   style={{ display: 'none' }}
                 />
-                <div className={styles.square} style={{ 
+                <div className={styles.square} style={{
                   border: '1.5px solid #85031f',
                   borderRadius: '4px',
                   backgroundColor: rememberMe ? '#85031f' : 'transparent',
@@ -219,7 +229,7 @@ const LoginPage = () => {
                 }}>
                   {rememberMe && (
                     <svg className={styles.vectorIcon} viewBox="0 0 12 12" fill="none">
-                      <path d="M2 6L5 9L10 3" stroke="#fffbf8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M2 6L5 9L10 3" stroke="#fffbf8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   )}
                 </div>
